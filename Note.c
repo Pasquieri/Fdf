@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/02/28 17:34:37 by mpasquie         ###   ########.fr       */
+/*   Updated: 2018/02/28 19:42:20 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int		main(void)
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 600, 600, "FEN_test");
 
-
+gcc -I/usr/local/include main.c -L /usr/local/lib -lmlx -framework OpenGL -framework AppKit fdf.h src/ft_trace_segment.c
 
 //	mlx = mlx_init();
 //	win = mlx_new_window(mlx, 600, 600, "42lol");
