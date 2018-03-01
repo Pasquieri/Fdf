@@ -6,13 +6,20 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/02/28 18:44:27 by mpasquie         ###   ########.fr       */
+/*   Updated: 2018/03/01 19:48:27 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FDF_
-# define _FDF_
-# include "minilibx_macos/mlx.h"
+#ifndef _FDF_H_
+# define _FDF_H_
+
+# include "Minilibx/Minilibx/mlx.h"
+# include <stdlib.h>
+# include <fcntl.h>
+# include <stdio.h>
+# include <math.h>
+# include <unistd.h>
+# include "Libft/libft.h"
 # define ABS(x) (x > 0 ? x : -x)
 
 typedef struct		s_coord
