@@ -1,31 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   pt_final.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/13 15:34:29 by mpasquie         ###   ########.fr       */
+/*   Created: 2018/03/13 16:11:57 by mpasquie          #+#    #+#             */
+/*   Updated: 2018/03/13 16:23:54 by mpasquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "Libft/libft.h"
+#include "../fdf.h"
 
-int		main(int argc, char **argv)
+t_coord		pt_final(t_coord pt1, float translation, t_info info)
 {
-	//	void		*mlx;
-//	void		*win;
-//	t_coord		coord;
+	t_coord		ptf;
 
-//	coord.x1 = 200;
-//	coord.y1 = 200;
-//	coord.x2 = 400;
-//	coord.y2 = 400;
-//	mlx = mlx_init();
-//	win = mlx_new_window(mlx, 600, 600, "FEN_test");
-//	ft_trace_segment(mlx, win, coord);
-//	mlx_loop(mlx);
-	return (0);
+	ptf.x = pt1.x + translation * info.plan.x;
+	ptf.y = pt1.y + translation * info.plan.y;
+	ptf.z = pt1.z + translation * info.plan.z;
+	return (ptf);
 }

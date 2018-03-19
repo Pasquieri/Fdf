@@ -1,31 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   translation.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/13 15:34:29 by mpasquie         ###   ########.fr       */
+/*   Created: 2018/03/13 15:57:22 by mpasquie          #+#    #+#             */
+/*   Updated: 2018/03/13 16:16:28 by mpasquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "Libft/libft.h"
+#include "../fdf.h"
 
-int		main(int argc, char **argv)
+float	translation(t_info info, t_coord pt1)
 {
-	//	void		*mlx;
-//	void		*win;
-//	t_coord		coord;
+	float	translation;
 
-//	coord.x1 = 200;
-//	coord.y1 = 200;
-//	coord.x2 = 400;
-//	coord.y2 = 400;
-//	mlx = mlx_init();
-//	win = mlx_new_window(mlx, 600, 600, "FEN_test");
-//	ft_trace_segment(mlx, win, coord);
-//	mlx_loop(mlx);
-	return (0);
+	translation = (info.profondeur - (info.plan.x * pt1.x)
+		- (info.plan.y * pt1.y) - (info.plan.z * pt1.z)) / 
+		(info.plan.x * info.plan.x + 
+		 info.plan.y * info.plan.y + info.plan.z * info.plan.z);
+	return (translation);
 }
