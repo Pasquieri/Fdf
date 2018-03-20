@@ -6,37 +6,25 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/20 19:52:28 by mpasquie         ###   ########.fr       */
+/*   Updated: 2018/03/20 19:33:56 by mpasquie         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "Libft/libft.h"
+#include "../fdf.h"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	void		*mlx;
 	void		*win;
-	t_coord		coord1;
-	t_coord		coord2;
+	t_info		info;
 
-	coord1.x = 100;
-	coord1.y = 200;
-	coord2.x = 150;
-	coord2.y = 300;
+	if (argc != 2)
+		return (0);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1000, 1000, "FEN_test");
-//	ft_trace_segment(mlx, win, coord1, coord2);
-	coord1.x = 100;
-	coord1.y = 200;
-	coord2.x = 300;
-	coord2.y = 400;
-	ft_trace_segment(mlx, win, coord1, coord2);
-	coord1.x = 100;
-	coord1.y = 200;
-	coord2.x = 300;
-	coord2.y = 300;
-	ft_trace_segment(mlx, win, coord1, coord2);
+	info = init_tableau(argv[1]);
+	info = rempli_tableau(info, argv[1]);
+	relie_pts(mlx, win, info);
 	mlx_loop(mlx);
 	return (0);
 }
