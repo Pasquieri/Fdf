@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 19:00:11 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/20 19:57:42 by mpasquie         ###   ########.fr       */
+/*   Updated: 2018/03/21 20:02:16 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,20 +23,14 @@ void	relie_pts(void	*mlx, void *win, t_info info)
 	while (y < info.y)
 	{
 		x = 0;
-		while (x < info.x - 1)
+		while (x < (info.x - 1))
 		{
-		//	coord1 = Recupts((x + 1) * 100, (y + 1) * 100, info.tab[x][y]); // * 50 pour que ce soit visible au niveau des pixels, a modif
-		//	coord2 = Recupts((x + 2) * 100, (y + 1) * 100, 0);
-			coord1.x = (x + 1) * 100;
-			coord1.y = (y + 1) * 100;
-			coord2.x = (x + 2) * 100;
-			coord2.y = (y + 1) * 100;
+			coord1 = Recupts((x + 1) * 50, (y + 1) * 50, 0); // * 50 pour que ce soit visible au niveau des pixels, a modif
+			coord2 = Recupts((x + 2) * 50, (y + 1) * 50, 0);
 			ft_trace_segment(mlx, win, coord1, coord2);
-			if (y > 0)
+			if (y > 1)
 			{
-			//	coord2 = Recupts((x + 1) * 100, (y - 1) * 100, info.tab[x][y - 1]);
-				coord2.x = (x + 1) * 100;
-				coord2.y = (y - 1) * 100;
+				coord2 = Recupts((x + 1) * 50, (y - 1) * 50, 0);
 				ft_trace_segment(mlx, win, coord1, coord2);
 			}
 			x++;
