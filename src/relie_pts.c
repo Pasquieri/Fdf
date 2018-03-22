@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 19:00:11 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/21 20:02:16 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/03/22 17:46:49 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,18 @@ void	relie_pts(void	*mlx, void *win, t_info info)
 			coord1 = Recupts((x + 1) * 50, (y + 1) * 50, 0); // * 50 pour que ce soit visible au niveau des pixels, a modif
 			coord2 = Recupts((x + 2) * 50, (y + 1) * 50, 0);
 			ft_trace_segment(mlx, win, coord1, coord2);
-			if (y > 1)
+			if (y > 0)
 			{
-				coord2 = Recupts((x + 1) * 50, (y - 1) * 50, 0);
+				coord2 = Recupts((x + 1) * 50, y * 50, 0);
 				ft_trace_segment(mlx, win, coord1, coord2);
 			}
 			x++;
+		}
+		if (y > 0)
+		{
+			coord1 = Recupts((x + 1) * 50, (y + 1) * 50, 0);
+			coord2 = Recupts((x + 1) * 50, y * 50, 0);
+			ft_trace_segment(mlx, win, coord1, coord2);
 		}
 		y++;
 	}
