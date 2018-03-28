@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/21 20:03:10 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/03/28 19:20:13 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,7 @@ typedef struct		s_info
 	int		**tab;
 	int		x;
 	int		y;
+	int		coef;
 }					t_info;
 
 int				ft_trace_segment(void *mlx, void *win, t_coord coord1, t_coord coord2);
@@ -40,5 +41,6 @@ t_coord			Recupts(int x, int y, int z);
 t_info			init_tableau(char *file);
 t_info			rempli_tableau(t_info info, char *file);
 void			relie_pts(void *mlx, void *win, t_info info);
+void			calcul_coef_distance_points(t_info *info);
 
 #endif
