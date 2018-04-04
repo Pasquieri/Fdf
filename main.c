@@ -6,37 +6,26 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/21 19:32:45 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/03 16:49:26 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
-#include "Libft/libft.h"
+#include "../fdf.h"
 
-int		main(void)
+int		main(int argc, char **argv)
 {
 	void		*mlx;
 	void		*win;
-	t_coord		coord1;
-	t_coord		coord2;
+	t_info		info;
 
-	coord1.x = 200;
-	coord1.y = 200;
-	coord2.x = 200;
-	coord2.y = 500;
+	if (argc != 2)
+		return (0);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1000, 1000, "FEN_test");
-	ft_trace_segment(mlx, win, coord1, coord2);
-	coord1.x = 100;
-	coord1.y = 200;
-	coord2.x = 300;
-	coord2.y = 400;
-	ft_trace_segment(mlx, win, coord1, coord2);
-	coord1.x = 100;
-	coord1.y = 200;
-	coord2.x = 300;
-	coord2.y = 300;
-	ft_trace_segment(mlx, win, coord1, coord2);
+	info = init_tableau(argv[1]);
+	info = rempli_tableau(info, argv[1]);
+	calcul_coef_distance_points(&info);
+	relie_pts(mlx, win, info);
 	mlx_loop(mlx);
 	return (0);
 }

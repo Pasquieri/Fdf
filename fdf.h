@@ -6,14 +6,14 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/28 19:20:13 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/04 19:56:29 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef _FDF_H_
 # define _FDF_H_
 
-# include "Minilibx/Minilibx/mlx.h"
+# include "Minilibx/mlx.h"
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
@@ -31,6 +31,7 @@ typedef struct		s_coord
 typedef struct		s_info
 {
 	int		**tab;
+	t_coord	*matrice; //par rapport a mon test avec matrice : ne pas prendre en compte
 	int		x;
 	int		y;
 	int		coef;
