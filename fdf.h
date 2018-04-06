@@ -6,12 +6,12 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/06 18:33:13 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/06 19:28:33 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef _FDF_H_
-# define _FDF_H_
+#ifndef FDF_H
+# define FDF_H
 
 # include "Minilibx/mlx.h"
 # include <stdlib.h>
