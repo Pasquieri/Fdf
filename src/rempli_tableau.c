@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:38:08 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/03/20 18:47:58 by mpasquie         ###   ########.fr       */
+/*   Updated: 2018/04/06 19:24:44 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,10 @@ t_info	rempli_tableau(t_info info, char *file)
 			j++;
 		}
 		if (j < info.x)
+		{
 			printf("pas bon\n"); // faire un return qui stop touuut car ligne incorrect
+			exit (1);
+		}
 		i++;
 	}
 	return (info);

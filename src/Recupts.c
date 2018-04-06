@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Recupts.c                                          :+:      :+:    :+:   */
+/*   recupts.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 15:49:49 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/04 16:19:25 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/06 16:48:09 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-t_coord		Recupts(int x, int y, int z)
+t_coord		recupts(int x, int y)
 {
 	t_coord		pts;
 
 	pts.x = x;
 	pts.y = y;
-	pts.z = z;
 	return (pts);
 }

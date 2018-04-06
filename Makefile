@@ -6,13 +6,13 @@
 #    By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/23 15:58:49 by cpalmier          #+#    #+#              #
-#    Updated: 2018/04/04 16:29:08 by cpalmier         ###   ########.fr        #
+#    Updated: 2018/04/06 17:02:11 by cpalmier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = fdf
 
-SRC = src/Recupts.c src/calcul_coef_distance_points.c src/ft_trace_segment.c \
+SRC = src/Recupts.c src/calcul_coef_distance_points.c src/ft_trace_seg.c \
 	  src/init_tableau.c main.c src/relie_pts.c src/rempli_tableau.c
 
 HEADER = fdf.h \
