@@ -6,13 +6,13 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:48:37 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/06 18:58:52 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/10 18:27:45 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-static int	cas_1(void *mlx, void *win, t_coord coord1, t_coord coord2)
+static int	cas_1(t_info info, t_coord coord1, t_coord coord2)
 {
 	int		dx;
 	int		e;
@@ -23,7 +23,7 @@ static int	cas_1(void *mlx, void *win, t_coord coord1, t_coord coord2)
 	dy = 2 * fabs(coord2.y - coord1.y);
 	while (coord1.x <= coord2.x)
 	{
-		mlx_pixel_put(mlx, win, coord1.x, coord1.y, 0x00BFFF);
+		mlx_pixel_put(info.mlx, info.win, coord1.x, coord1.y, info.color1);
 		coord1.x++;
 		e -= dy;
 		while (e < 0)
@@ -32,14 +32,14 @@ static int	cas_1(void *mlx, void *win, t_coord coord1, t_coord coord2)
 				coord1.y++;
 			else if (coord1.y > coord2.y)
 				coord1.y--;
-			mlx_pixel_put(mlx, win, coord1.x, coord1.y, 0xFF4040);
+			mlx_pixel_put(info.mlx, info.win, coord1.x, coord1.y, info.color2);
 			e += dx;
 		}
 	}
 	return (0);
 }
 
-static int	cas_2(void *mlx, void *win, t_coord coord1, t_coord coord2)
+static int	cas_2(t_info info, t_coord coord1, t_coord coord2)
 {
 	int		dx;
 	int		e;
@@ -50,7 +50,7 @@ static int	cas_2(void *mlx, void *win, t_coord coord1, t_coord coord2)
 	dy = 2 * fabs(coord2.y - coord1.y);
 	while (coord1.x >= coord2.x)
 	{
-		mlx_pixel_put(mlx, win, coord1.x, coord1.y, 0xFF7F00);
+		mlx_pixel_put(info.mlx, info.win, coord1.x, coord1.y, info.color1);
 		coord1.x--;
 		e -= dy;
 		while (e < 0)
@@ -59,20 +59,20 @@ static int	cas_2(void *mlx, void *win, t_coord coord1, t_coord coord2)
 				coord1.y++;
 			else if (coord1.y > coord2.y)
 				coord1.y--;
-			mlx_pixel_put(mlx, win, coord1.x, coord1.y, 0xFF7F00);
+			mlx_pixel_put(info.mlx, info.win, coord1.x, coord1.y, info.color2);
 			e += dx;
 		}
 	}
 	return (0);
 }
 
-static int	cas_3(void *mlx, void *win, t_coord coord1, t_coord coord2)
+static int	cas_3(t_info info, t_coord coord1, t_coord coord2)
 {
 	if (coord1.y <= coord2.y)
 	{
 		while (coord1.y <= coord2.y)
 		{
-			mlx_pixel_put(mlx, win, coord1.x, coord1.y, 0xFFFFFF);
+			mlx_pixel_put(info.mlx, info.win, coord1.x, coord1.y, info.color1);
 			coord1.y++;
 		}
 	}
@@ -80,20 +80,20 @@ static int	cas_3(void *mlx, void *win, t_coord coord1, t_coord coord2)
 	{
 		while (coord1.y >= coord2.y)
 		{
-			mlx_pixel_put(mlx, win, coord1.x, coord1.y, 0xFFFFFF);
+			mlx_pixel_put(info.mlx, info.win, coord1.x, coord1.y, info.color1);
 			coord1.y--;
 		}
 	}
 	return (0);
 }
 
-int			ft_trace_seg(void *mlx, void *win, t_coord coord1, t_coord coord2)
+int			ft_trace_seg(t_info info, t_coord coord1, t_coord coord2)
 {
 	if (coord1.x > coord2.x)
-		cas_2(mlx, win, coord1, coord2);
+		cas_2(info, coord1, coord2);
 	else if (coord1.x < coord2.x)
-		cas_1(mlx, win, coord1, coord2);
+		cas_1(info, coord1, coord2);
 	else if (coord1.x == coord2.x)
-		cas_3(mlx, win, coord1, coord2);
+		cas_3(info, coord1, coord2);
 	return (0);
 }
