@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rempli_tableau.c                                   :+:      :+:    :+:   */
+/*   rempli_tableau_rotation.c                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/20 17:38:08 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/11 19:21:23 by cpalmier         ###   ########.fr       */
+/*   Created: 2018/04/11 16:07:01 by cpalmier          #+#    #+#             */
+/*   Updated: 2018/04/11 17:22:39 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	rempli_tableau(t_info *info, char *file)
+void	rempli_tableau_rotation(t_info *info, char *file)
 {
 	int		i;
 	int		j;
@@ -26,12 +26,13 @@ void	rempli_tableau(t_info *info, char *file)
 	while (get_next_line(fd, &line) == 1)
 	{
 		j = 0;
+		info->rota = -info->x / 2;
 		tmp = ft_strsplit(line, ' ');
 		while (tmp[j])
 		{
-			info->tab[i][j] = ft_atoi(tmp[j]);
-			info->ref_tab[i][j] = ft_atoi(tmp[j]);
+			info->tab[i][j] = info->rota + ft_atoi(tmp[j]);
 			j++;
+			info->rota++;
 		}
 		if (j < info->x)
 		{

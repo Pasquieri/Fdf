@@ -6,137 +6,57 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/10 18:37:54 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/11 20:02:22 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
 
+static void	mode_key(t_info *info)
+{
+		if (info->mode == 1)
+		{
+			info->mode = 2;
+			rempli_tableau_rotation(info, info->argv);
+		}
+		else if (info->mode == 2)
+		{
+			info->mode = 1;
+			info->rota_key = 0;
+			rempli_tableau(info, info->argv);
+		}
+}
+
 static int	deal_key(int key, t_info *info)
 {
-	(void)info;
 	if (key == 53)
 		exit(0);
 	else if (key == 69) // +
-	{
 		info->h = info->h + 1;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
 	else if (key == 78) // -
-	{
 		info->h = info->h - 1;
-		mlx_clear_window(info->mlx, info->win);
+	else if (key == 124 || key == 123 || key == 126 || key == 125)
+		deplacement_key(key, info);
+	else if (key == 83 || key == 84 || key == 85 || key == 86 || key == 87)
+		color_key1(key, info);
+	else if (key == 88 || key == 89 || key == 91 || key == 92)
+		color_key2(key, info);
+	else if (key == 15)
+		mode_key(info);
+	else if (key == 0 && info->mode == 2) // A
+		info->rota_key++;
+	else if (key == 2 && info->mode == 2) // D
+		info->rota_key--;
+	else
+		return (0);
+	mlx_clear_window(info->mlx, info->win);
+	if ((key == 69 || key == 78 ) && info->mode == 2)
+		relie_pts_rotation_x(*info);
+	else
 		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 124) // =>
-	{
-		info->right = info->right + 5;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 123) // <=
-	{
-		info->right = info->right - 5;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 126) // haut
-	{
-		info->down = info->down - 5;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 125) // bas
-	{
-		info->down = info->down + 5;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 83) // 1
-	{
-		info->color1 = 0x00BFFF;
-		info->color2 = 0xFF4040;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 84) // 2
-	{
-		info->color1 = 0xFFD700;
-		info->color2 = 0xEE2C2C;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 85) // 3
-	{
-		info->color1 = 0x00FA9A;
-		info->color2 = 0x0000CD;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 86) // 4
-	{
-		info->color1 = 0x912CEE;
-		info->color2 = 0xFF8C00;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 87) // 5
-	{
-		info->color1 = 0x556B2F;
-		info->color2 = 0xFFA500;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 88) // 6
-	{
-		info->color1 = 0xFF8C00;
-		info->color2 = 0x6E8B3D;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 89) // 7
-	{
-		info->color1 = 0xCD2990;
-		info->color2 = 0x4EEE94;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 91) // 8
-	{
-		info->color1 = 0x00F5FF;
-		info->color2 = 0x9400D3;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	else if (key == 92) // 9
-	{
-		info->color1 = 0xFF82AB;
-		info->color2 = 0xFF3E96;
-		mlx_clear_window(info->mlx, info->win);
-		relie_pts(*info);
-		consigne(*info);
-	}
-	printf("%d\n", key);
+	consigne(*info);
 	return (0);
 }
-
-
-
 
 int	main(int argc, char **argv)
 {
@@ -148,18 +68,14 @@ int	main(int argc, char **argv)
 		return (0);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1000, 1000, argv[1]);
-	info = init_tableau(argv[1]);
-	info = rempli_tableau(info, argv[1]);
-	calcul_coef_distance_points(&info);
+	init_tableau(argv[1], &info);
+	rempli_tableau(&info, argv[1]);
 	info.mlx = mlx;
 	info.win = win;
-	info.h = 3;
-	info.right = 450;
-	info.down = 120;
-	info.color1 = 0x00BFFF;
-	info.color2 = 0xFF4040;
-	consigne(info);
+	info.argv = argv[1];
+	init_info(&info);
 	relie_pts(info);
+	consigne(info);
 	mlx_key_hook(win, deal_key, &info);
 	mlx_loop(mlx);
 	return (0);

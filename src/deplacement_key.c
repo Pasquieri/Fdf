@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_info.c                                        :+:      :+:    :+:   */
+/*   deplacement_key.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2018/03/28 19:14:24 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/11 20:02:17 by cpalmier         ###   ########.fr       */
+/*   Created: 2018/04/11 16:41:04 by cpalmier          #+#    #+#             */
+/*   Updated: 2018/04/11 17:12:27 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	init_info(t_info *info)
+void	deplacement_key(int key, t_info *info)
 {
-	int	coef;
-	
-	coef = 700 / (info->x + info->y);
-	info->coef = coef;
-	info->h = 3;
-	info->right = 450;
-	info->down = 120;
-	info->color1 = 0x00BFFF;
-	info->color2 = 0xFF4040;
-	info->mode = 1;
-	info->rota_key = 0;
+	if (key == 124) // =>
+		info->right = info->right + 5;
+	else if (key == 123) // <=
+		info->right = info->right - 5;
+	else if (key == 126) // haut
+		info->down = info->down - 5;
+	else if (key == 125) // bas
+		info->down = info->down + 5;
 }

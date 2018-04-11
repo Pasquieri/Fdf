@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/10 18:29:02 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/11 19:48:47 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,28 +31,39 @@ typedef struct	s_coord
 typedef struct	s_info
 {
 	int		**tab;
+	int		**ref_tab;
 	int		x;
 	int		y;
 	int		h;
-	int		right;
-	int		down;
+	int		coef;
 	int		cmp_x;
 	int		cmp_y;
 	int		pos_x;
 	int		pos_y;
-	int		coef;
+	int		right;
+	int		down;
+	int		rota;
+	int		rota_key;
 	void	*mlx;
 	void	*win;
 	int		color1;
 	int		color2;
+	char	*argv;
+	int		mode;
 }				t_info;
 
 int				ft_trace_seg(t_info info, t_coord cd1, t_coord cd2);
 t_coord			recupts(int x, int y);
-t_info			init_tableau(char *file);
-t_info			rempli_tableau(t_info info, char *file);
+void			init_tableau(char *file, t_info *info);
+void			rempli_tableau(t_info *info, char *file);
+void			rempli_tableau_rotation(t_info *info, char *file);
 void			relie_pts(t_info info);
+void			relie_pts_rotation(t_info info);
+void			relie_pts_rotation_x(t_info info);
 void			calcul_coef_distance_points(t_info *info);
 void			consigne(t_info info);
+void			color_key1(int key, t_info *info);
+void			color_key2(int key, t_info *info);
+void			deplacement_key(int key, t_info *info);
 
 #endif
