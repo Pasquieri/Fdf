@@ -6,15 +6,15 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:37:46 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/16 19:15:07 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/16 19:40:18 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-static void	verif_file(char **split)
+static void	verif_file(char **split, char *line)
 {
-	if (!split)
+	if (!split || !*line)
 	{
 		ft_putstr("error : bad file\n");
 		exit(0);
@@ -35,7 +35,7 @@ void		init_tableau(char *file, t_info *info)
 	get_next_line(fd, &line);
 	info->y = 1;
 	split = ft_strsplit(line, ' ');
-	verif_file(split);
+	verif_file(split, line);
 	while (split[info->x])
 		info->x++;
 	while ((get_next_line(fd, &line) == 1))
