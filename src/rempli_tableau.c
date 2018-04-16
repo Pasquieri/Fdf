@@ -6,13 +6,22 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:38:08 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/12 16:09:34 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/16 17:26:25 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	rempli_tableau(t_info *info, char *file)
+static void	ft_error(int j, t_info *info)
+{
+	if (j < info->x)
+	{
+		ft_putstr("erreur : bad file\n");
+		exit(0);
+	}
+}
+
+void		rempli_tableau(t_info *info, char *file)
 {
 	int		i;
 	int		j;
@@ -33,11 +42,7 @@ void	rempli_tableau(t_info *info, char *file)
 			info->ref_tab[i][j] = ft_atoi(tmp[j]);
 			j++;
 		}
-		if (j < info->x)
-		{
-			printf("erreur : bad file\n");
-			exit(0);
-		}
+		ft_error(j, info);
 		i++;
 	}
 }

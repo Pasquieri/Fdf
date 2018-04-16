@@ -6,13 +6,22 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:07:01 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/11 17:22:39 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/16 16:56:15 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../fdf.h"
 
-void	rempli_tableau_rotation(t_info *info, char *file)
+static void	ft_error(int j, t_info *info)
+{
+	if (j < info->x)
+	{
+		ft_putstr("erreur dans le fichier\n");
+		exit(0);
+	}
+}
+
+void		rempli_tableau_rotation(t_info *info, char *file)
 {
 	int		i;
 	int		j;
@@ -22,7 +31,7 @@ void	rempli_tableau_rotation(t_info *info, char *file)
 
 	i = 0;
 	if (!(fd = open(file, O_RDONLY)))
-		exit (0);
+		exit(0);
 	while (get_next_line(fd, &line) == 1)
 	{
 		j = 0;
@@ -34,11 +43,7 @@ void	rempli_tableau_rotation(t_info *info, char *file)
 			j++;
 			info->rota++;
 		}
-		if (j < info->x)
-		{
-			printf("pas bon\n"); // faire un return qui stop touuut car ligne incorrect
-			exit (1);
-		}
+		ft_error(j, info);
 		i++;
 	}
 }

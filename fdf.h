@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/12 16:10:28 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/16 16:35:51 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,5 +66,6 @@ void			consigne(t_info info);
 void			color_key1(int key, t_info *info);
 void			color_key2(int key, t_info *info);
 void			deplacement_key(int key, t_info *info);
+void			hauteur_key(int key, t_info *info);
 
 #endif
