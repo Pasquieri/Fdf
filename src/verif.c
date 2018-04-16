@@ -6,7 +6,7 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 16:03:36 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 17:53:38 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/16 18:43:08 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	verif(char *file)
 			if ((ft_isdigit(line[i]) == 0) && (line[i] != '-' && line[i] != '+'
 						&& line[i] != ' ' && line[i] != '\t'))
 			{
-				printf("erreur : bad file\n");
+				ft_putstr("erreur : bad file\n");
 				exit(0);
 			}
 			i++;
