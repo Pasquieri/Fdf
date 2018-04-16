@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:37:46 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/11 19:35:35 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/12 15:45:43 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	init_tableau(char *file, t_info *info)
 	info->x = 0;
 	line = NULL;
 	if (!(fd = open(file, O_RDONLY)))
-		exit (0);
+		exit(0);
 	get_next_line(fd, &line);
 	info->y = 1;
 	split = ft_strsplit(line, ' ');

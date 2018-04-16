@@ -6,7 +6,7 @@
 #    By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/08 16:10:32 by cpalmier          #+#    #+#              #
-#    Updated: 2018/01/31 18:24:48 by cpalmier         ###   ########.fr        #
+#    Updated: 2018/04/12 15:40:09 by cpalmier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,25 +26,27 @@ SRC = ft_atoi.c ft_bzero.c ft_isalnum.c ft_isalpha.c ft_isascii.c ft_isdigit.c\
 	  ft_swap.c ft_lstadd_end.c get_next_line.c
 HEADER = libft.h
 OBJ = $(SRC:.c=.o)
-COLOR = \033[1;33m
+
+COLOR = \033[1;34m
+COLOR_OFF = \033[0m
 
 all : $(NAME)
-
 
 $(NAME) : $(OBJ)
 	@ar rc $(NAME) $(OBJ)
 	@ranlib $(NAME)
-	@echo "${COLOR}all : libft.a created √"
+	@echo "${COLOR}Libft.a created${COLOR_OFF}"
 
 %.o : %.c
 	@gcc -Wall -Wextra -Werror -c $< -o $@ -I $(HEADER)
 
 clean :
 	@rm -rf $(OBJ)
-	@echo "${COLOR}clean √"
+	@echo "${COLOR}Libft clean${COLOR_OFF}"
 
-fclean : clean
+fclean :
+	@rm -rf $(OBJ)
 	@rm -rf $(NAME)
-	@echo "${COLOR}fclean √"
+	@echo "${COLOR}Libft fclean${COLOR_OFF}"
 
 re : fclean $(NAME)

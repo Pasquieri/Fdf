@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/11 20:02:22 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/12 16:10:53 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 		return (0);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1000, 1000, argv[1]);
+	verif(argv[1]);
 	init_tableau(argv[1], &info);
 	rempli_tableau(&info, argv[1]);
 	info.mlx = mlx;
