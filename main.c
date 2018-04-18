@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/18 18:20:17 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 18:38:45 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,13 +17,13 @@ static void	mode_key(t_info *info)
 	if (info->mode == 1)
 	{
 		info->mode = 2;
+		info->ref_h = info->h;
 		rempli_tableau_rotation(info, info->argv);
 	}
 	else if (info->mode == 2)
 	{
 		info->mode = 1;
-		info->rota_key = 0;
-		info->h = 3;
+		info->h = info->ref_h;
 		rempli_tableau(info, info->argv);
 	}
 }

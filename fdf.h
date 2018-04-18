@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/16 16:35:51 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 18:37:54 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ typedef struct	s_info
 	int		x;
 	int		y;
 	int		h;
+	int		ref_h;
 	int		coef;
 	int		cmp_x;
 	int		cmp_y;
@@ -43,7 +44,6 @@ typedef struct	s_info
 	int		right;
 	int		down;
 	int		rota;
-	int		rota_key;
 	void	*mlx;
 	void	*win;
 	int		color1;
@@ -60,7 +60,6 @@ void			rempli_tableau(t_info *info, char *file);
 void			rempli_tableau_rotation(t_info *info, char *file);
 void			relie_pts(t_info info);
 void			relie_pts_rotation(t_info info);
-void			relie_pts_rotation_x(t_info info);
 void			init_info(t_info *info);
 void			consigne(t_info info);
 void			color_key1(int key, t_info *info);

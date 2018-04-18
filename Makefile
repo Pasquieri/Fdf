@@ -6,7 +6,7 @@
 #    By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/23 15:58:49 by cpalmier          #+#    #+#              #
-#    Updated: 2018/04/17 16:24:05 by mpasquie         ###   ########.fr        #
+#    Updated: 2018/04/18 18:37:03 by cpalmier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,8 +15,7 @@ NAME = fdf
 SRC = src/recupts.c src/init_info.c src/ft_trace_seg.c src/verif.c \
 	  src/init_tableau.c main.c src/relie_pts.c src/rempli_tableau.c \
 	  src/consigne.c src/rempli_tableau_rotation.c src/color_key.c \
-	  src/deplacement_key.c src/relie_pts_rotation.c src/relie_pts_rotation_x.c\
-	  src/hauteur_key.c
+	  src/deplacement_key.c src/relie_pts_rotation.c src/hauteur_key.c
 
 HEADER = fdf.h \
 		 Libft/libft.h
