@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/16 17:54:23 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 18:20:17 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ static void	mode_key(t_info *info)
 	{
 		info->mode = 1;
 		info->rota_key = 0;
+		info->h = 3;
 		rempli_tableau(info, info->argv);
 	}
 }
@@ -45,14 +46,21 @@ static int	deal_key(int key, t_info *info)
 		info->coef++;
 	else if (key == 7 && info->coef > 0)
 		info->coef--;
-	else
-		return (0);
+	else if (key == 82)
+		init_info(info);
 	mlx_clear_window(info->mlx, info->win);
 	if ((key == 69 || key == 78) && info->mode == 2)
-		relie_pts_rotation_x(*info);
+		relie_pts_rotation(*info);
 	else
 		relie_pts(*info);
 	consigne(*info);
+	return (0);
+}
+
+static int	red_cross(int key)
+{
+	(void)key;
+	exit(0);
 	return (0);
 }
 
@@ -78,7 +86,8 @@ int			main(int argc, char **argv)
 	init_info(&info);
 	relie_pts(info);
 	consigne(info);
-	mlx_key_hook(win, deal_key, &info);
+	mlx_hook(win, 2, 3, deal_key, &info);
+	mlx_hook(win, 17, 3, red_cross, &info);
 	mlx_loop(mlx);
 	return (0);
 }

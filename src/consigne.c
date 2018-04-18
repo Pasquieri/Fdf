@@ -6,7 +6,7 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 17:16:43 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 17:13:53 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 18:21:27 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,6 @@ void	consigne(t_info info)
 			"1-9 : changer les couleurs");
 	mlx_string_put(info.mlx, info.win, 40, 1025, info.color2,
 			"r : mode rotation (avec + et -)");
+	mlx_string_put(info.mlx, info.win, 40, 1050, info.color2,
+			"0 : reinitialise la fenetre");
 }
