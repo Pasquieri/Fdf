@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:37:46 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/16 19:40:18 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 23:06:15 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,16 @@
 
 static void	verif_file(char **split, char *line)
 {
+	int	i;
+
+	i = -1;
 	if (!split || !*line)
 	{
 		ft_putstr("error : bad file\n");
+		free(line);
+		while (split[++i])
+			free(split[i]);
+		free(split);
 		exit(0);
 	}
 }
@@ -36,10 +43,18 @@ void		init_tableau(char *file, t_info *info)
 	info->y = 1;
 	split = ft_strsplit(line, ' ');
 	verif_file(split, line);
+	free(line);
 	while (split[info->x])
+	{
+		free(split[info->x]);
 		info->x++;
+	}
+	free(split);
 	while ((get_next_line(fd, &line) == 1))
+	{
 		info->y++;
+		free(line);
+	}
 	info->tab = (int **)malloc(sizeof(int *) * (info->y + 1));
 	info->ref_tab = (int **)malloc(sizeof(int *) * (info->y + 1));
 	i = -1;

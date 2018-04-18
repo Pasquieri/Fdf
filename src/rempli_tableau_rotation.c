@@ -6,7 +6,7 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:07:01 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 16:56:15 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 23:10:20 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ void		rempli_tableau_rotation(t_info *info, char *file)
 	i = 0;
 	if (!(fd = open(file, O_RDONLY)))
 		exit(0);
+	line = NULL;
 	while (get_next_line(fd, &line) == 1)
 	{
 		j = 0;
@@ -40,10 +41,13 @@ void		rempli_tableau_rotation(t_info *info, char *file)
 		while (tmp[j])
 		{
 			info->tab[i][j] = info->rota + ft_atoi(tmp[j]);
+			free(tmp[j]);
 			j++;
 			info->rota++;
 		}
-		ft_error(j, info);
 		i++;
+		free(line);
+		free(tmp);
+		ft_error(j, info);
 	}
 }

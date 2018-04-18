@@ -6,7 +6,7 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 16:03:36 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 18:43:08 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/04/18 23:11:23 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,14 @@ void	verif(char *file)
 	int		fd;
 	char	*line;
 
-	if (ft_strcmp(file, "/dev/null") == 0 || ft_strcmp(file, "/dev/zero") == 0)
+	if (ft_strcmp(file, "/dev/zero") == 0)
 	{
 		ft_putstr("error : bad file\n");
 		exit(0);
 	}
 	if (!(fd = open(file, O_RDONLY)))
 		exit(0);
+	line = NULL;
 	while (get_next_line(fd, &line) == 1)
 	{
 		i = 0;
@@ -38,5 +39,6 @@ void	verif(char *file)
 			}
 			i++;
 		}
+		free(line);
 	}
 }
