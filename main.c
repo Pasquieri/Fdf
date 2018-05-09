@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/05/09 18:40:54 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 19:31:33 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,13 +18,13 @@ static void	mode_key(t_info *info)
 	{
 		info->mode = 2;
 		info->ref_h = info->h;
-		rempli_tableau_rotation(info, info->argv);
+		info->tab = info->tab_rot;
 	}
 	else if (info->mode == 2)
 	{
 		info->mode = 1;
 		info->h = info->ref_h;
-		rempli_tableau(info, info->argv);
+		info->tab = info->ref_tab;
 	}
 }
 
@@ -79,12 +79,9 @@ int			main(int argc, char **argv)
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1000, 1100, argv[1]);
 	init_tableau(argv[1], &info);
-	rempli_tableau(&info, argv[1]);
 	info.mlx = mlx;
 	info.win = win;
-	info.argv = argv[1];
 	init_info(&info);
-	info.mode = 1;
 	relie_pts(info);
 	consigne(info);
 	mlx_hook(win, 2, 3, deal_key, &info);

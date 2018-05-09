@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/05/09 17:49:15 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 19:29:34 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ typedef struct	s_coord
 typedef struct	s_info
 {
 	int		**tab;
+	int		**tab_rot;
 	int		**ref_tab;
 	int		x;
 	int		y;
@@ -48,7 +49,6 @@ typedef struct	s_info
 	void	*win;
 	int		color1;
 	int		color2;
-	char	*argv;
 	int		mode;
 }				t_info;
 

@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:37:46 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/05/09 18:36:20 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 19:24:49 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ static void	verif_file(char **split, char *line)
 	}
 }
 
-static void	init_tableau2(int fd, t_info *info)
+static void	init_tableau_malloc(int fd, t_info *info)
 {
 	int		i;
 	char	*line;
@@ -40,12 +40,12 @@ static void	init_tableau2(int fd, t_info *info)
 		free(line);
 		line = NULL;
 	}
-	info->tab = (int **)malloc(sizeof(int *) * (info->y + 1));
+	info->tab_rot = (int **)malloc(sizeof(int *) * (info->y + 1));
 	info->ref_tab = (int **)malloc(sizeof(int *) * (info->y + 1));
 	i = -1;
 	while (++i < info->y)
 	{
-		info->tab[i] = (int *)malloc(sizeof(int) * (info->x + 1));
+		info->tab_rot[i] = (int *)malloc(sizeof(int) * (info->x + 1));
 		info->ref_tab[i] = (int *)malloc(sizeof(int) * (info->x + 1));
 	}
 }
@@ -73,5 +73,7 @@ void		init_tableau(char *file, t_info *info)
 	}
 	free(split);
 	split = NULL;
-	init_tableau2(fd, info);
+	init_tableau_malloc(fd, info);
+	rempli_tableau(info, file);
+	rempli_tableau_rotation(info, file);
 }

@@ -6,19 +6,16 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:07:01 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/05/09 18:50:35 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 19:50:02 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/fdf.h"
 
-static void	ft_error(int j, t_info *info)
+static void	incrementaion(int *j, t_info *info)
 {
-	if (j < info->x)
-	{
-		ft_putstr("erreur dans le fichier\n");
-		exit(0);
-	}
+	*j = *j + 1;
+	info->rota++;
 }
 
 void		rempli_tableau_rotation(t_info *info, char *file)
@@ -40,14 +37,12 @@ void		rempli_tableau_rotation(t_info *info, char *file)
 		tmp = ft_strsplit(line, ' ');
 		while (tmp[j])
 		{
-			info->tab[i][j] = info->rota + ft_atoi(tmp[j]);
+			info->tab_rot[i][j] = info->rota + ft_atoi(tmp[j]);
 			free(tmp[j]);
-			j++;
-			info->rota++;
+			incrementaion(&j, info);
 		}
 		i++;
 		free(line);
 		free(tmp);
-		ft_error(j, info);
 	}
 }
