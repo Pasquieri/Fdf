@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:51:18 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/11 18:52:21 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:48:22 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 static void	trace_droite(t_info info, t_coord coord1)
 {

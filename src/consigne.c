@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/10 17:16:43 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/18 18:21:27 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:46:28 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 void	consigne(t_info info)
 {

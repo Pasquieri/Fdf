@@ -6,20 +6,20 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:40:05 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/18 18:37:54 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:49:15 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "Minilibx/mlx.h"
+# include "../Minilibx/mlx.h"
 # include <stdlib.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <math.h>
 # include <unistd.h>
-# include "Libft/libft.h"
+# include "../Libft/libft.h"
 
 typedef struct	s_coord
 {

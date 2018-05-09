@@ -6,11 +6,11 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/13 15:49:49 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/06 16:48:09 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:48:16 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 t_coord		recupts(int x, int y)
 {

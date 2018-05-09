@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:41:04 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 17:08:14 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:58:08 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 void	deplacement_key(int key, t_info *info)
 {

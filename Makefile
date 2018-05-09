@@ -6,7 +6,7 @@
 #    By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/01/23 15:58:49 by cpalmier          #+#    #+#              #
-#    Updated: 2018/05/07 17:13:25 by mpasquie         ###   ########.fr        #
+#    Updated: 2018/05/09 17:45:17 by cpalmier         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,7 @@ SRC = src/recupts.c src/init_info.c src/ft_trace_seg.c src/verif.c \
 	  src/consigne.c src/rempli_tableau_rotation.c src/color_key.c \
 	  src/deplacement_key.c src/relie_pts_rotation.c src/hauteur_key.c
 
-HEADER = fdf.h \
+HEADER = include/fdf.h \
 		 Libft/libft.h
 
 OBJ = $(SRC:.c=.o)

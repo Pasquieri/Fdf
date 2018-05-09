@@ -6,23 +6,28 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/12 16:03:36 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/18 23:11:23 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 18:42:50 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
-void	verif(char *file)
+static void	verif2(char *file)
 {
-	int		i;
-	int		fd;
-	char	*line;
-
 	if (ft_strcmp(file, "/dev/zero") == 0)
 	{
 		ft_putstr("error : bad file\n");
 		exit(0);
 	}
+}
+
+void		verif(char *file)
+{
+	int		i;
+	int		fd;
+	char	*line;
+
+	verif2(file);
 	if (!(fd = open(file, O_RDONLY)))
 		exit(0);
 	line = NULL;
@@ -34,7 +39,8 @@ void	verif(char *file)
 			if ((ft_isdigit(line[i]) == 0) && (line[i] != '-' && line[i] != '+'
 						&& line[i] != ' ' && line[i] != '\t'))
 			{
-				ft_putstr("erreur : bad file\n");
+				ft_putstr("error : bad file\n");
+				free(line);
 				exit(0);
 			}
 			i++;

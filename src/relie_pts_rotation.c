@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/04 16:51:18 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/18 18:40:13 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 18:42:18 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 static void	trace_droite(t_info info, t_coord coord1)
 {
@@ -61,7 +61,7 @@ void		relie_pts_rotation(t_info info)
 			z = info.ref_tab[info.cmp_y - 1][info.cmp_x];
 			coord1 = recupts(info.pos_x * info.coef + info.right, info.pos_y
 					* info.coef + info.down - (info.rota * info.h)
-					- z * info.ref_h );
+					- z * info.ref_h);
 			if (info.cmp_x < (info.x - 1))
 				trace_droite(info, coord1);
 			if (info.cmp_y > 1)

@@ -6,11 +6,11 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/28 17:48:37 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/16 17:24:00 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:46:39 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 static int	cas_1(t_info info, t_coord coord1, t_coord coord2)
 {

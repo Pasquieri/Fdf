@@ -6,11 +6,11 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:38:08 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/18 23:09:45 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:48:39 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 static void	ft_error(int j, t_info *info)
 {

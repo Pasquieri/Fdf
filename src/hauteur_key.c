@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/16 16:34:06 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 16:43:27 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:46:44 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 void	hauteur_key(int key, t_info *info)
 {

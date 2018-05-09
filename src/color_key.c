@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:28:51 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/16 16:42:21 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 17:46:22 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 void	color_key1(int key, t_info *info)
 {

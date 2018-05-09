@@ -6,11 +6,11 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:37:46 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/18 23:06:15 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 18:36:20 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 static void	verif_file(char **split, char *line)
 {
@@ -28,10 +28,31 @@ static void	verif_file(char **split, char *line)
 	}
 }
 
+static void	init_tableau2(int fd, t_info *info)
+{
+	int		i;
+	char	*line;
+
+	line = NULL;
+	while ((get_next_line(fd, &line) == 1))
+	{
+		info->y++;
+		free(line);
+		line = NULL;
+	}
+	info->tab = (int **)malloc(sizeof(int *) * (info->y + 1));
+	info->ref_tab = (int **)malloc(sizeof(int *) * (info->y + 1));
+	i = -1;
+	while (++i < info->y)
+	{
+		info->tab[i] = (int *)malloc(sizeof(int) * (info->x + 1));
+		info->ref_tab[i] = (int *)malloc(sizeof(int) * (info->x + 1));
+	}
+}
+
 void		init_tableau(char *file, t_info *info)
 {
 	int		fd;
-	int		i;
 	char	*line;
 	char	**split;
 
@@ -47,20 +68,10 @@ void		init_tableau(char *file, t_info *info)
 	while (split[info->x])
 	{
 		free(split[info->x]);
+		split[info->x] = NULL;
 		info->x++;
 	}
 	free(split);
-	while ((get_next_line(fd, &line) == 1))
-	{
-		info->y++;
-		free(line);
-	}
-	info->tab = (int **)malloc(sizeof(int *) * (info->y + 1));
-	info->ref_tab = (int **)malloc(sizeof(int *) * (info->y + 1));
-	i = -1;
-	while (++i < info->y)
-	{
-		info->tab[i] = (int *)malloc(sizeof(int) * (info->x + 1));
-		info->ref_tab[i] = (int *)malloc(sizeof(int) * (info->x + 1));
-	}
+	split = NULL;
+	init_tableau2(fd, info);
 }

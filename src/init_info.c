@@ -6,11 +6,11 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/28 19:14:24 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/04/18 18:37:46 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 18:14:25 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../fdf.h"
+#include "../include/fdf.h"
 
 void	init_info(t_info *info)
 {
@@ -24,5 +24,4 @@ void	init_info(t_info *info)
 	info->down = 120;
 	info->color1 = 0x00BFFF;
 	info->color2 = 0xFF4040;
-	info->mode = 1;
 }
