@@ -6,11 +6,11 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/02/15 17:05:32 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/04/18 23:12:25 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/09 18:40:54 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fdf.h"
+#include "include/fdf.h"
 
 static void	mode_key(t_info *info)
 {
@@ -49,7 +49,7 @@ static int	deal_key(int key, t_info *info)
 	else if (key == 82)
 		init_info(info);
 	mlx_clear_window(info->mlx, info->win);
-	if ((key == 69 || key == 78) && info->mode == 2)
+	if (info->mode == 2)
 		relie_pts_rotation(*info);
 	else
 		relie_pts(*info);
@@ -75,15 +75,16 @@ int			main(int argc, char **argv)
 		ft_putstr("usage : ./fdf file\n");
 		exit(0);
 	}
+	verif(argv[1]);
 	mlx = mlx_init();
 	win = mlx_new_window(mlx, 1000, 1100, argv[1]);
-	verif(argv[1]);
 	init_tableau(argv[1], &info);
 	rempli_tableau(&info, argv[1]);
 	info.mlx = mlx;
 	info.win = win;
 	info.argv = argv[1];
 	init_info(&info);
+	info.mode = 1;
 	relie_pts(info);
 	consigne(info);
 	mlx_hook(win, 2, 3, deal_key, &info);
