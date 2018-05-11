@@ -6,7 +6,7 @@
 /*   By: cpalmier <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/04/11 16:07:01 by cpalmier          #+#    #+#             */
-/*   Updated: 2018/05/09 19:50:02 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/11 16:11:41 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,12 @@ static void	incrementaion(int *j, t_info *info)
 {
 	*j = *j + 1;
 	info->rota++;
+}
+
+static void	ft_free(char **line, char ***tmp)
+{
+	free(*line);
+	free(*tmp);
 }
 
 void		rempli_tableau_rotation(t_info *info, char *file)
@@ -42,7 +48,7 @@ void		rempli_tableau_rotation(t_info *info, char *file)
 			incrementaion(&j, info);
 		}
 		i++;
-		free(line);
-		free(tmp);
+		ft_free(&line, &tmp);
 	}
+	free(line);
 }

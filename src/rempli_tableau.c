@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:38:08 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/05/09 19:44:10 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/11 16:08:36 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ static void	ft_error(int j, t_info *info)
 		ft_putstr("error : bad file\n");
 		exit(0);
 	}
+}
+
+static void	ft_free(char **line, char ***tmp)
+{
+	free(*line);
+	free(*tmp);
 }
 
 void		rempli_tableau(t_info *info, char *file)
@@ -44,8 +50,8 @@ void		rempli_tableau(t_info *info, char *file)
 			j++;
 		}
 		i++;
-		free(line);
-		free(tmp);
+		ft_free(&line, &tmp);
 		ft_error(j, info);
 	}
+	free(line);
 }

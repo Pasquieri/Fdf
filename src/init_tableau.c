@@ -6,7 +6,7 @@
 /*   By: mpasquie <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/03/20 17:37:46 by mpasquie          #+#    #+#             */
-/*   Updated: 2018/05/09 19:24:49 by cpalmier         ###   ########.fr       */
+/*   Updated: 2018/05/11 15:55:46 by cpalmier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,8 @@ static void	init_tableau_malloc(int fd, t_info *info)
 		free(line);
 		line = NULL;
 	}
+	if (line)
+		free(line);
 	info->tab_rot = (int **)malloc(sizeof(int *) * (info->y + 1));
 	info->ref_tab = (int **)malloc(sizeof(int *) * (info->y + 1));
 	i = -1;
